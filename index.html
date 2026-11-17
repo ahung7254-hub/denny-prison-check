@@ -208,6 +208,10 @@ body.present aside{display:none}
 .jflow b{color:#1f9e8e;font-size:11px}
 main.checking .jflow.has{display:flex;animation:chalk .3s ease-out}
 @media (max-width:760px){.jflow{padding:10px 14px 0}}
+
+/* 지문 번호·제목은 해석 보기 전엔 숨김 (컨닝 방지) */
+.hidenum{display:none}
+main.checking .hidenum{display:inline}
 /* ── 불규칙 동사 4칸 ── */
 .wirr{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(8px,1.4vw,18px);width:100%;max-width:1100px}
 .ic{background:#fff;border-radius:16px;padding:clamp(10px,1.6vh,18px) 8px clamp(14px,2.4vh,26px);display:flex;flex-direction:column;align-items:center;gap:clamp(6px,1.2vh,12px);box-shadow:0 2px 0 rgba(38,51,74,.08)}
@@ -518,7 +522,7 @@ function show(pick){
   el.innerHTML = plain ? `<span class="en">${pick.c.map(c=>c[0]).join(" ")}</span>` + (pick.t ? `<span class="fulltr">${pick.t}</span>` : "") : jdHTML(pick);
   el.classList.add("show");
   hasPick = true; setGloss(false); fitSentence();
-  $("where").innerHTML = `${pick.rd} <b>${numLabel(pick.n)}</b> 지문` + (pick.jp && pick.jp.title ? `<span class="jtitle">${pick.jp.title}<small>${pick.jp.sub||""}</small></span>` : "");
+  $("where").innerHTML = `${pick.rd}<span class="hidenum"> <b>${numLabel(pick.n)}</b> 지문</span>` + (pick.jp && pick.jp.title ? `<span class="jtitle hidenum">${pick.jp.title}<small>${pick.jp.sub||""}</small></span>` : "");
   const low = pick.s.toLowerCase();
   $("note").textContent = pick.notes.filter(x=>low.includes(x.split(":")[0].trim().toLowerCase())).map(x=>"* "+x).join("   ");
   let jf = $("jflow"); if(!jf){ jf = document.createElement("div"); jf.id = "jflow"; jf.className = "jflow"; document.querySelector(".stage-top").after(jf); }
