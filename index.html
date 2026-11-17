@@ -522,7 +522,7 @@ function show(pick){
   el.innerHTML = plain ? `<span class="en">${pick.c.map(c=>c[0]).join(" ")}</span>` + (pick.t ? `<span class="fulltr">${pick.t}</span>` : "") : jdHTML(pick);
   el.classList.add("show");
   hasPick = true; setGloss(false); fitSentence();
-  $("where").innerHTML = `${pick.rd}<span class="hidenum"> <b>${numLabel(pick.n)}</b> 지문</span>` + (pick.jp && pick.jp.title ? `<span class="jtitle hidenum">${pick.jp.title}<small>${pick.jp.sub||""}</small></span>` : "");
+  $("where").innerHTML = `<span class="hidenum">${pick.rd} <b>${numLabel(pick.n)}</b> 지문</span>` + (pick.jp && pick.jp.title ? `<span class="jtitle hidenum">${pick.jp.title}<small>${pick.jp.sub||""}</small></span>` : "");
   const low = pick.s.toLowerCase();
   $("note").textContent = pick.notes.filter(x=>low.includes(x.split(":")[0].trim().toLowerCase())).map(x=>"* "+x).join("   ");
   let jf = $("jflow"); if(!jf){ jf = document.createElement("div"); jf.id = "jflow"; jf.className = "jflow"; document.querySelector(".stage-top").after(jf); }
