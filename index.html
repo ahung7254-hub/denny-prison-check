@@ -202,7 +202,7 @@ body.present aside{display:none}
 .jko{display:none}
 .sentence.revealed .jgrp{display:inline-flex;flex-direction:column;vertical-align:top;margin:0 .1em .35em 0}
 .sentence.revealed .jbx{display:block;white-space:normal}
-.jko{font-family:"Noto Sans KR","Apple SD Gothic Neo",sans-serif;font-size:.5em;font-weight:700;line-height:1.45;color:var(--yellow);text-align:center;word-break:keep-all;
+.jko{font-family:"Noto Sans KR","Apple SD Gothic Neo",sans-serif;font-size:.58em;font-weight:700;line-height:1.45;color:var(--yellow);text-align:center;word-break:keep-all;
   margin-top:.15em;padding:0 .2em .12em;border-bottom:2px solid #9db2c4}
 .sentence.revealed .jko{display:block;animation:chalk .3s ease-out}
 .jtitle{font-family:"Nunito","Noto Sans KR",sans-serif;font-weight:700;color:var(--chalk);margin-left:.5em}
@@ -448,7 +448,7 @@ function fitSentence(){
   const mobile = window.innerWidth <= 760, cs = getComputedStyle(st);
   const availW = st.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
   const availH = st.clientHeight - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom);
-  let size = mobile ? Math.min(34, Math.max(26, window.innerWidth*0.074)) : Math.min(42, Math.max(24, st.clientWidth/21));
+  let size = mobile ? Math.min(34, Math.max(26, window.innerWidth*0.074)) : Math.min(76, Math.max(28, st.clientWidth/15));
   const fits = () => el.scrollWidth <= availW + 1 && (mobile || el.offsetHeight <= availH);
   el.style.fontSize = size + "px";
   while(!fits() && size > 15){ size -= 1; el.style.fontSize = size + "px"; }
