@@ -162,6 +162,10 @@ body.present .app{grid-template-columns:1fr}
 body.present main{margin:16px}
 body.present aside{display:none}
 @media (max-width:760px){
+  .jko{font-size:.62em}
+  .ck .ko{font-size:.62em}
+  .fulltr{font-size:.56em}
+  .stage{padding:18px 16px!important}
   .app{grid-template-columns:1fr;grid-template-rows:auto 1fr;height:auto;min-height:100%}
   main{min-height:70vh;margin:0 12px 12px;border-radius:22px}
   .stage{padding:20px 24px}
@@ -172,7 +176,7 @@ body.present aside{display:none}
   .stage-btns button{flex:1;font-size:18px;min-height:58px;padding:14px 10px}
   .stage-btns #present,.kbd{display:none}
   .mascot img{width:44px;height:44px}
-  .bubble{font-size:13px;padding:6px 10px}
+  .bubble{font-size:13px;padding:6px 10px;white-space:nowrap}
   .nums label{min-width:52px;padding:11px 10px;font-size:16px}
   select{padding:12px;font-size:16px}
   button.primary{padding:16px;font-size:18px}
@@ -428,7 +432,7 @@ function fitSentence(){
   const mobile = window.innerWidth <= 760, cs = getComputedStyle(st);
   const availW = st.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
   const availH = st.clientHeight - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom);
-  let size = mobile ? Math.min(30, Math.max(20, window.innerWidth*0.058)) : Math.min(31, Math.max(20, st.clientWidth/28));
+  let size = mobile ? Math.min(34, Math.max(26, window.innerWidth*0.074)) : Math.min(42, Math.max(24, st.clientWidth/21));
   const fits = () => el.scrollWidth <= availW + 1 && (mobile || el.offsetHeight <= availH);
   el.style.fontSize = size + "px";
   while(!fits() && size > 15){ size -= 1; el.style.fontSize = size + "px"; }
